@@ -1,0 +1,98 @@
+openapi: 3.0.3
+info:
+  title: Django DRF Api Quickmed App
+  version: 0.0.0
+paths:
+  /ambulance/api/ambulance_payment/success/:
+    get:
+      operationId: ambulance_api_ambulance_payment_success_retrieve
+      tags:
+      - ambulance
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /ambulance/api/authenticate_ambulance_users/:
+    post:
+      operationId: ambulance_api_authenticate_ambulance_users_create
+      tags:
+      - ambulance
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /e-consultant/api/authenticate_e_consultant_users/:
+    post:
+      operationId: e_consultant_api_authenticate_e_consultant_users_create
+      tags:
+      - e-consultant
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /e-consultant/api/e_consultant_payment/success/:
+    get:
+      operationId: e_consultant_api_e_consultant_payment_success_retrieve
+      tags:
+      - e-consultant
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /hospital/api/authenticate_hospital_users/:
+    post:
+      operationId: hospital_api_authenticate_hospital_users_create
+      tags:
+      - hospital
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /hospital/api/hospital_payment/success/:
+    get:
+      operationId: hospital_api_hospital_payment_success_retrieve
+      tags:
+      - hospital
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /users_app_api/api/authenticate_users/:
+    post:
+      operationId: users_app_api_api_authenticate_users_create
+      tags:
+      - users_app_api
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

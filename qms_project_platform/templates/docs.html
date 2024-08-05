@@ -1,0 +1,25 @@
+<!-- users_app_api/templates/user_profiles.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport", content="width=device-width, initial-scale">
+    <link rel="stylesheet", type="texts/css", href="//unpkg.com/swagger-ui-dist@3/swagger-ui.css" />
+    <title>Quickmed Server API Documentation</title>
+</head>
+<body>
+   <div id="swagger-ui"></div>
+    <script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+    <script>
+        const ui = SwaggerUIBundle({
+            url: '{% url schema_url %}',
+            dom_id: 'swagger-ui',
+            presets: [
+                SwaggerUIBundle.presets.apis,
+                SwaggerUIBundle.SwaggerUIStandalonePreset
+            ],
+            layout: "BaseLayout"
+        })
+    </script>
+</body>
+</html>

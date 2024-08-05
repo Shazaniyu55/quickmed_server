@@ -1,0 +1,49 @@
+1-SET USEAGE POLICY WINDOWS:
+Set-ExecutionPolicy Bypass -Scope Process -Force
+
+2-CREATING VIRTUAL ENVIRONMENT MAC: 
+python3 -m venv new_env
+
+3-ACTIVATE VIRTUAL ENVIRONMENT MAC: 
+source yournewvirtualenv/bin/activate
+
+4-ENTER PROJECT DIRECTORY MAC:
+cd qms_project_platform
+
+
+5-INSTALLING PROJECT DEPENDENCIES MAC:
+pip3 install -r requirements.txt
+
+
+6-CREATING REQUIREMENTS.TXT FILE MAC AS A NEW DEVELOPER IN THE TEAM:
+1-cd path\to\your\virtual\environment
+2-pip freeze > requirements.txt
+
+
+7-ACTIVATE VIRTUAL ENVIRONMENT WINDOWS:
+qmvenv\Scripts\activate
+
+
+8-DEACTIVATE VIRTUAL ENVIRONMENT WINDOWS:
+deactivate
+
+9-ENTER PROJECT DIRECTORY:
+cd qms_project_platform
+
+
+10-RUN MIGRATIONS WINDOWS/MAC:
+python manage.py makemigrations
+python3 manage.py makemigrations
+
+11-RUN MIGRATE WINDOWS/MAC:
+python manage.py migrate
+python3 manage.py migrate
+
+12-RUN SERVER WINDOWS/MAC:
+python manage.py runserver
+python3 manage.py runserver
+
+
+
+Visit apis docs:
+http://127.0.0.1:8000/api/schema/quickmeddocs

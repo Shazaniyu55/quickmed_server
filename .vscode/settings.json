@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./qms_project_platform/qms_project_platform/utils"
+    ]
+}
