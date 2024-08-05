@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "your_project_name/wsgi.py",
+        "src": "qms_project_plateform/manage.py",
         "use": "@vercel/python",
         "config": {
           "maxLambdaSize": "15mb",
@@ -24,7 +24,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "your_project_name/wsgi.py"
+        "dest": "qms_project_plateform/manage.py"
       }
     ]
   }
