@@ -25,25 +25,27 @@ app_secrete_key = os.getenv("app_secrete_key")
 @csrf_exempt
 def wallet_top_up(request, *args, **kwargs):
     try:
-        tx_ref = request.data.get("tx_ref")
-        amount_str = request.data.get("amount")
-        currency = request.data.get("currency")
-        email = request.data.get("email")
-        phone_number = request.data.get("phone_number")
-        name = request.data.get("name")
-        firebase_token = request.data.get("firebase_token")
-        user_id = request.data.get("user_id")
+       
+       tx_ref = request.data.get("tx_ref")
+       amount = request.data.get("amount")
+       currency = request.data.get("currency")
+       email = request.data.get("email")
+       phone_number = request.data.get("phone_number")
+       name = request.data.get("name")
+       
+        # firebase_token = request.data.get("firebase_token")
+        # user_id = request.data.get("user_id")
 
         # Convert amount to float and validate
-        try:
+       """try:
             amount = float(amount_str)
             if amount <= 0:
                 raise ValueError("Amount must be positive")
-        except (ValueError, TypeError) as e:
-            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+       except (ValueError, TypeError) as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)"""
 
         # Prepare payload
-        payload = {
+       payload = {
             "tx_ref": tx_ref,
             "amount": amount,
             "currency": currency,
@@ -59,26 +61,26 @@ def wallet_top_up(request, *args, **kwargs):
             }
         }
 
-        headers = {
-            'Authorization': f'Bearer {flutterwave_secret_key}',
+       headers = {
+            'Authorization': f'Bearer FLWPUBK_TEST-752f397aab636da73ceec264d04842ab-X',
             'Content-Type': 'application/json',
         }
 
-        response = requests.post("https://api.flutterwave.com/v3/payments", headers=headers, json=payload)
+       response = requests.post("https://api.flutterwave.com/v3/payments", headers=headers, json=payload)
 
         # Log response details
-        logger.info(f"Response Status Code: {response.status_code}")
-        logger.info(f"Response Content: {response.text}")
+       logger.info(f"Response Status Code: {response.status_code}")
+       logger.info(f"Response Content: {response.text}")
 
         # Try to parse JSON response
-        try:
-            response_data = response.json()
-        except requests.exceptions.JSONDecodeError:
-            logger.error("Failed to decode JSON from response")
-            response_data = {"error": "Invalid response format"}
-            return Response(response_data, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        # try:
+        #     response_data = response.json()
+        # except requests.exceptions.JSONDecodeError:
+        #     logger.error("Failed to decode JSON from response")
+        #     response_data = {"error": "Invalid response format"}
+        #     return Response(response_data, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-        return Response(response_data, status=response.status_code)
+       return Response({response}, status=response.status_code)
 
     except Exception as e:
         logger.exception("An error occurred in wallet_top_up view")
